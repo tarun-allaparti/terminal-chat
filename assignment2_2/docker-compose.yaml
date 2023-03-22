@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: chatbot_db
+    container_name: "postgres_container"
+    volumes:
+      - ./init.db.sql:/docker-entrypoint-initdb.d/init.db.sql
+    ports:
+      - 5432:5432
+  flask1:
+    build: ./chatbot_parser
+    container_name: "chatbot_parser"
+    ports:
+      - "5050:5050"
+  flask2:
+    build: ./shrug_command
+    container_name: "shrug_command"
+  flask3:
+    build: ./email_server
+    container_name: "email_server"
+    
+    
