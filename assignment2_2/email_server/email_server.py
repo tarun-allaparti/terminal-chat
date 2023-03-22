@@ -21,7 +21,7 @@ def send():
     email = words[0]
     subject1 = words[1]
     message = " ".join(words[2:])
-    sg = sendgrid.SendGridAPIClient('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')
+    sg = sendgrid.SendGridAPIClient('my-api-key')
     from_email = Email("tarun.allaparti@berkeley.edu")  # Change to your verified sender
     to_email = To(email)  # Change to your recipient
     subject = subject1
